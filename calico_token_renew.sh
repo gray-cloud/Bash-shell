@@ -2,8 +2,10 @@
 
 ## 针对不能自动续期token的calico版本做token检查并续期
 
+# 获取当前时间
 current_date=$(date +%s )
 
+# 检查配置文件是否存在
 if [ -f /etc/cni/net.d/calico-kubeconfig ]
 then
  exp_date=$(cat /etc/cni/net.d/calico-kubeconfig | grep token | cut -d '.' -f2 | base64 -d  2>/dev/null | cut -d ',' -f2 | cut -d ':' -f2)
