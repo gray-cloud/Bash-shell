@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## 针对不能自动续期token的calico版本做token检查并续期
+
 current_date=$(date +%s )
 
 if [ -f /etc/cni/net.d/calico-kubeconfig ]
